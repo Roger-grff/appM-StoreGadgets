@@ -1,0 +1,7 @@
+{
+  "name": "appM-gadgets",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
