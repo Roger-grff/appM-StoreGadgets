@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-title>
+      Detalle Gadget
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card *ngIf="gadget">
+
+    <img [src]="gadget.imagen_url">
+
+    <ion-card-header>
+
+      <ion-card-title>
+        {{ gadget.nombre }}
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <p>
+        <strong>Marca:</strong>
+        {{ gadget.marca }}
+      </p>
+
+      <p>
+        <strong>Descripción:</strong>
+        {{ gadget.descripcion }}
+      </p>
+
+      <p>
+        <strong>Precio:</strong>
+        ${{ gadget.precio }}
+      </p>
+
+        <!-- VIDEO -->
+
+        <div
+          class="video-container"
+          *ngIf="videoSeguro">
+          <iframe
+            [src]="videoSeguro"
+            width="100%"
+            height="250"
+            frameborder="0"
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+            referrerpolicy="origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      <!-- AUDIO -->
+
+      <audio
+        *ngIf="gadget.audio_url"
+        controls
+        style="width:100%; margin-top:20px;">
+
+        <source
+          [src]="gadget.audio_url"
+          type="audio/mpeg">
+
+      </audio>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

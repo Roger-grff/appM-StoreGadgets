@@ -1,0 +1,192 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-title>
+
+      {{ id ? 'Editar Gadget' : 'Nuevo Gadget' }}
+
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding fondo">
+
+  <ion-card class="form-card">
+
+    <ion-card-header>
+
+      <ion-card-title>
+        Información del Gadget
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <!-- NOMBRE -->
+      <ion-item>
+        <ion-label position="stacked">
+          Nombre
+        </ion-label>
+
+        <ion-input
+          [(ngModel)]="gadget.nombre"
+          placeholder="Ingrese el nombre">
+        </ion-input>
+      </ion-item>
+
+      <!-- MARCA -->
+      <ion-item>
+        <ion-label position="stacked">
+          Marca
+        </ion-label>
+
+        <ion-input
+          [(ngModel)]="gadget.marca"
+          placeholder="Ingrese la marca">
+        </ion-input>
+      </ion-item>
+
+      <!-- MODELO -->
+      <ion-item>
+        <ion-label position="stacked">
+          Modelo
+        </ion-label>
+
+        <ion-input
+          [(ngModel)]="gadget.modelo"
+          placeholder="Ingrese el modelo">
+        </ion-input>
+      </ion-item>
+
+      <!-- PRECIO -->
+      <ion-item>
+        <ion-label position="stacked">
+          Precio
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="gadget.precio"
+          placeholder="0.00">
+        </ion-input>
+      </ion-item>
+
+      <!-- STOCK -->
+      <ion-item>
+        <ion-label position="stacked">
+          Stock
+        </ion-label>
+
+        <ion-input
+          type="number"
+          [(ngModel)]="gadget.stock"
+          placeholder="0">
+        </ion-input>
+      </ion-item>
+
+      <!-- CATEGORIA -->
+      <ion-item>
+        <ion-label position="stacked">
+          Categoría
+        </ion-label>
+
+        <ion-input
+          [(ngModel)]="gadget.categoria"
+          placeholder="Ej: Smartphone">
+        </ion-input>
+      </ion-item>
+
+      <!-- DESCRIPCION -->
+      <ion-item>
+        <ion-label position="stacked">
+          Descripción
+        </ion-label>
+
+        <ion-textarea
+          [(ngModel)]="gadget.descripcion"
+          placeholder="Descripción del gadget">
+        </ion-textarea>
+      </ion-item>
+
+      <!-- URL IMAGEN -->
+      <ion-item>
+        <ion-label position="stacked">
+          URL Imagen
+        </ion-label>
+
+        <ion-input
+          [(ngModel)]="gadget.imagen_url"
+          placeholder="https://...">
+        </ion-input>
+      </ion-item>
+
+      <!-- PREVIEW IMAGEN -->
+      <div
+        class="preview-container"
+        *ngIf="gadget.imagen_url">
+
+        <img
+          [src]="gadget.imagen_url"
+          class="preview-img"
+          alt="Preview">
+
+      </div>
+
+      <!-- URL VIDEO -->
+      <ion-item>
+        <ion-label position="stacked">
+          URL Video YouTube/TikTok
+        </ion-label>
+
+        <ion-input
+          [(ngModel)]="gadget.video_url"
+          placeholder="https://www.youtube.com/embed/...">
+        </ion-input>
+      </ion-item>
+
+      <!-- PREVIEW VIDEO -->
+      <div
+        class="preview-video"
+        *ngIf="gadget.video_url">
+
+        <iframe
+          width="100%"
+          height="220"
+          [src]="gadget.video_url"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <ion-item>
+
+        <ion-label position="stacked">
+          URL Audio
+        </ion-label>
+
+        <ion-input
+          [(ngModel)]="gadget.audio_url"
+          placeholder="https://...mp3">
+        </ion-input>
+
+      </ion-item>
+
+      <!-- BOTON -->
+      <ion-button
+        expand="block"
+        color="primary"
+        class="btn-guardar"
+        (click)="guardar()">
+
+        {{ id ? 'Actualizar Gadget' : 'Guardar Gadget' }}
+
+      </ion-button>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,162 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-title>
+      Gadgets Store
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding fondo">
+
+  <!-- BARRA DE BUSQUEDA -->
+  <ion-searchbar
+    placeholder="Buscar gadgets..."
+    animated="true"
+    (ionInput)="buscar($event)">
+  </ion-searchbar>
+
+  <!-- GRID DE GADGETS -->
+  <ion-grid>
+
+    <ion-row>
+
+      <!-- CARD -->
+      <ion-col
+        size="12"
+        size-md="6"
+        size-lg="4"
+        *ngFor="let gadget of gadgetsFiltrados">
+
+        <ion-card class="gadget-card">
+
+          <!-- IMAGEN -->
+          <img
+            [src]="gadget.imagen_url"
+            alt="Imagen gadget"
+            class="imagen-gadget"
+          />
+
+          <!-- TITULO -->
+          <ion-card-header>
+
+            <ion-card-title>
+              {{ gadget.nombre }}
+            </ion-card-title>
+
+          </ion-card-header>
+
+          <!-- CONTENIDO -->
+          <ion-card-content>
+
+            <p>
+              <strong>Marca:</strong>
+              {{ gadget.marca }}
+            </p>
+
+            <p>
+              <strong>Modelo:</strong>
+              {{ gadget.modelo }}
+            </p>
+
+            <p>
+              <strong>Precio:</strong>
+              ${{ gadget.precio }}
+            </p>
+
+            <p>
+              <strong>Stock:</strong>
+              {{ gadget.stock }}
+            </p>
+
+            <p>
+              <strong>Categoría:</strong>
+            </p>
+
+            <ion-chip color="success">
+              {{ gadget.categoria }}
+            </ion-chip>
+
+            <!-- BOTONES -->
+
+<div class="botones">
+
+  <!-- VER DETALLE -->
+
+  <ion-button
+
+    expand="block"
+
+    color="primary"
+
+    [routerLink]="[
+      '/gadget-detalle',
+      gadget.id
+    ]"
+
+    (click)="sonidoAbrir()">
+
+    Ver Detalle
+
+  </ion-button>
+
+  <!-- EDITAR -->
+
+  <ion-button
+
+    expand="block"
+
+    color="warning"
+
+    [routerLink]="[
+      '/gadgets-form',
+      gadget.id
+    ]">
+
+    Editar
+
+  </ion-button>
+
+  <!-- ELIMINAR -->
+
+  <ion-button
+
+    expand="block"
+
+    color="danger"
+
+    (click)="sonidoBorrar();
+            eliminar(gadget.id!)">
+
+    Eliminar
+
+  </ion-button>
+
+</div>
+
+          </ion-card-content>
+
+        </ion-card>
+
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+  <!-- BOTON FLOTANTE -->
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed">
+
+    <ion-fab-button routerLink="/gadgets-form">
+
+      +
+
+    </ion-fab-button>
+
+  </ion-fab>
+
+</ion-content>
