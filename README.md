@@ -2,7 +2,7 @@
 
 Aplicación móvil para gestión de una tienda de gadgets, desarrollada con **Ionic + Angular + Capacitor** y base de datos en **Supabase**.
 
-<img width="738" height="250" alt="WhatsApp Image 2026-05-21 at 23 00 22" src="https://github.com/user-attachments/assets/004a86cb-6f31-447c-a022-127db24e8de0" />
+<img width="100" height="250" alt="WhatsApp Image 2026-05-21 at 23 00 22" src="https://github.com/user-attachments/assets/004a86cb-6f31-447c-a022-127db24e8de0" />
 
 
 ---
